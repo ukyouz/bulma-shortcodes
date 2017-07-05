@@ -74,17 +74,6 @@ function bulma_sCardFooter($atts, $content = null)
 {
 		$parsed_content = do_shortcode($content);
 		extract(shortcode_atts(array(), $atts));
-		if (strpos($parsed_content, '<a') !== false) {
-				$atemplate = "
-			 <a href='$1' class='has-arrow-icon'>
-				 $2
-				 <span class='icon'>
-					 <i class='fa fa-arrow-right'></i>
-				 </span>
-			 </a>";
-
-				$parsed_content = preg_replace('/<a href=\"(.*?)\">(.*?)<\/a>/', $atemplate, $parsed_content);
-		}
 
 		$footer_item_array = bulma_split_at_bar($parsed_content);
 		$concatenated_content = '';
