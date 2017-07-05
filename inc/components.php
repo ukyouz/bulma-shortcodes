@@ -18,13 +18,13 @@
 
 function bulma_sBox($atts, $content = null)
 {
-    extract(shortcode_atts(array('type'=> ''), $atts));
-    if ($type === 'full-width') {
-        $string = '<div class="box">'.do_shortcode($content).'</div>';
-    } else {
-        $string = '<div class="box" style="display: inline-block;">'.do_shortcode($content).'</div>';
-    }
-    return $string;
+		extract(shortcode_atts(array('type'=> ''), $atts));
+		if ($type === 'full-width') {
+				$string = '<div class="box">'.do_shortcode($content).'</div>';
+		} else {
+				$string = '<div class="box" style="display: inline-block;">'.do_shortcode($content).'</div>';
+		}
+		return $string;
 }
 
 /**
@@ -33,8 +33,8 @@ function bulma_sBox($atts, $content = null)
 
 function bulma_sNotification($atts, $content = null)
 {
-    extract(shortcode_atts(array('type' => 'is-primary'), $atts));
-    return '<div class="notification '.$type.'">'.do_shortcode($content).'</div>';
+		extract(shortcode_atts(array('type' => 'is-primary'), $atts));
+		return '<div class="notification '.$type.'">'.do_shortcode($content).'</div>';
 }
 
 /**
@@ -43,7 +43,7 @@ function bulma_sNotification($atts, $content = null)
 
 function bulma_sCard($atts, $content = null)
 {
-    return '<div class="card">'.do_shortcode($content).'</div>';
+		return '<div class="card">'.do_shortcode($content).'</div>';
 }
 
 /**
@@ -52,8 +52,8 @@ function bulma_sCard($atts, $content = null)
 
 function bulma_sCardHeader($atts, $content = null)
 {
-    extract(shortcode_atts(array(), $atts));
-    return '<header class="card-header"><h4 class="card-header-title is-marginless">'.do_shortcode($content).'</h4></header>';
+		extract(shortcode_atts(array(), $atts));
+		return '<header class="card-header"><h4 class="card-header-title is-marginless">'.do_shortcode($content).'</h4></header>';
 }
 
 /**
@@ -62,8 +62,8 @@ function bulma_sCardHeader($atts, $content = null)
 
 function bulma_sCardContent($atts, $content = null)
 {
-    extract(shortcode_atts(array(), $atts));
-    return '<div class="card-content content">'.do_shortcode($content).'</div>';
+		extract(shortcode_atts(array(), $atts));
+		return '<div class="card-content content">'.do_shortcode($content).'</div>';
 }
 
 /**
@@ -72,29 +72,29 @@ function bulma_sCardContent($atts, $content = null)
 
 function bulma_sCardFooter($atts, $content = null)
 {
-    $parsed_content = do_shortcode($content);
-    extract(shortcode_atts(array(), $atts));
-    if (strpos($parsed_content, '<a') !== false) {
-        $atemplate = "
-       <a href='$1' class='has-arrow-icon'>
-         $2
-         <span class='icon'>
-           <i class='fa fa-arrow-right'></i>
-         </span>
-       </a>";
+		$parsed_content = do_shortcode($content);
+		extract(shortcode_atts(array(), $atts));
+		if (strpos($parsed_content, '<a') !== false) {
+				$atemplate = "
+			 <a href='$1' class='has-arrow-icon'>
+				 $2
+				 <span class='icon'>
+					 <i class='fa fa-arrow-right'></i>
+				 </span>
+			 </a>";
 
-        $parsed_content = preg_replace('/<a href=\"(.*?)\">(.*?)<\/a>/', $atemplate, $parsed_content);
-    }
+				$parsed_content = preg_replace('/<a href=\"(.*?)\">(.*?)<\/a>/', $atemplate, $parsed_content);
+		}
 
-    $footer_item_array = bulma_split_at_bar($parsed_content);
-    $concatenated_content = '';
+		$footer_item_array = bulma_split_at_bar($parsed_content);
+		$concatenated_content = '';
 
-    foreach ($footer_item_array as $item) {
-        $string = '<div class="card-footer-item">'.$item.'</div>';
-        $concatenated_content .= $string;
-    }
+		foreach ($footer_item_array as $item) {
+				$string = '<div class="card-footer-item">'.$item.'</div>';
+				$concatenated_content .= $string;
+		}
 
-    return '<footer class="card-footer">'.$concatenated_content.'</footer>';
+		return '<footer class="card-footer">'.$concatenated_content.'</footer>';
 }
 
 /**
@@ -103,8 +103,8 @@ function bulma_sCardFooter($atts, $content = null)
 
 function bulma_sIcon($atts, $content = null)
 {
-    extract(shortcode_atts(array('name' => '', 'type'=>''), $atts));
-    return '<span class="icon '.$type.'"><i class="fa fa-'.$name.'"></i></span>';
+		extract(shortcode_atts(array('name' => '', 'type'=>''), $atts));
+		return '<span class="icon '.$type.'"><i class="fa fa-'.$name.'"></i></span>';
 }
 
 /**
@@ -113,7 +113,7 @@ function bulma_sIcon($atts, $content = null)
 
 function bulma_sMenu($atts, $content = null)
 {
-    return '<aside class="menu">'.do_shortcode($content).'</aside>';
+		return '<aside class="menu">'.do_shortcode($content).'</aside>';
 }
 
 /**
@@ -122,7 +122,7 @@ function bulma_sMenu($atts, $content = null)
 
 function bulma_sMenuLabel($atts, $content = null)
 {
-    return '<p class="menu-label">'.do_shortcode($content).'</p>';
+		return '<p class="menu-label">'.do_shortcode($content).'</p>';
 }
 
 /**
@@ -131,16 +131,16 @@ function bulma_sMenuLabel($atts, $content = null)
 
 function bulma_sMenuList($atts, $content = null)
 {
-    $parsed_content = do_shortcode($content);
-    extract(shortcode_atts(array(), $atts));
+		$parsed_content = do_shortcode($content);
+		extract(shortcode_atts(array(), $atts));
 
-    $menu_item_array = bulma_split_at_bar($parsed_content);
-    $concatenated_content = '';
+		$menu_item_array = bulma_split_at_bar($parsed_content);
+		$concatenated_content = '';
 
-    foreach ($menu_item_array as $item) {
-        $string = '<li>'.$item.'</li>';
-        $concatenated_content .= $string;
-    }
+		foreach ($menu_item_array as $item) {
+				$string = '<li>'.$item.'</li>';
+				$concatenated_content .= $string;
+		}
 
-    return '<ul class="menu-list">'.$concatenated_content.'</ul>';
+		return '<ul class="menu-list">'.$concatenated_content.'</ul>';
 }
