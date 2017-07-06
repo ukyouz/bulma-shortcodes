@@ -2,11 +2,11 @@
 /**
  * Plugin Name: Bulma Shortcodes
  * Plugin URI: https://github.com/bartboy011/bulma-shortcodes
- * Description: Adds bulma-based shortcodes to editor
+ * Description: Adds a collection of WordPress shortcodes for Bulma components as well as a simple TinyMCE dropdown to use them.
  * Author: Joshua Bartlett
  * Author URI: https://www.joshuarbartlett.com
- * License: GPL2
- * Version: 1.0.0
+ * License: GPLv2
+ * Version: 1.0
  *
  * Bulma Shortcodes is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
