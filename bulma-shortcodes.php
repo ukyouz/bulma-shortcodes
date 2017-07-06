@@ -6,6 +6,7 @@
  * Author: Joshua Bartlett
  * Author URI: https://www.joshuarbartlett.com
  * License: GPL2
+ * Version: 1.0.0
  *
  * Bulma Shortcodes is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
