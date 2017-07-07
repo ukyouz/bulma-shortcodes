@@ -5,24 +5,15 @@ require dirname(__FILE__) . '/elements.php';
 require dirname(__FILE__) . '/components.php';
 
 /**
-* Adds the font-awesome library too the editor for the shortcode menu.
+* Adds the font awesome library and a custom css file to the editor for the shortcode menu.
 */
-add_action('admin_head-post.php', function () {
-		?>
-		<style>
-		@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-		.mce-ico.mce-i-fa {
-				display: inline-block;
-				font: normal normal normal 14px/1 FontAwesome;
-				font-size: inherit;
-				text-rendering: auto;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-		}
-		</style>
-		<?php
+add_action('admin_enqueue_scripts', 'bulma_shortcodes_custom_css_enqueue');
 
-});
+function bulma_shortcodes_custom_css_enqueue() {
+	wp_enqueue_style('bulma_shortcodes_font_awesome_external', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+	wp_enqueue_style('bulma_shortcodes_custom_css', plugins_url('css/bulma_shortcodes_custom_css.css', dirname(__FILE__)));
+}
 
 /**
 * Trims added <p> tags from shortcodes for more consistent results.
