@@ -46,7 +46,7 @@ class BulmaShortcodesPlugin
 				add_filter('mce_buttons', array( &$this, 'add_bulma_shortcodes_toolbar_button' ));
 		}
 
-		public function add_bulma_shortcodes_plugin()
+		public function add_bulma_shortcodes_plugin($plugin_array)
 		{
 				$plugin_array['bulma_shortcodes_plugin'] = plugin_dir_url(__FILE__) . "bulma_shortcodes_plugin.js";
 				return $plugin_array;
